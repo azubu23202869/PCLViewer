@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>PCLViewer</class>
+ <widget class="QMainWindow" name="PCLViewer">
+  <property name="windowModality">
+   <enum>Qt::NonModal</enum>
+  </property>
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1366</width>
+    <height>811</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>PCLViewer</string>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="1">
+     <widget class="QTreeView" name="treeView">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Fixed" vsizetype="Expanding">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="0">
+     <widget class="QVTKWidget" name="qvtkWidget"/>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1366</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menu">
+    <property name="title">
+     <string>文件</string>
+    </property>
+    <addaction name="action_open"/>
+   </widget>
+   <widget class="QMenu" name="menu_2">
+    <property name="title">
+     <string>編輯</string>
+    </property>
+    <widget class="QMenu" name="menu_3">
+     <property name="title">
+      <string>顏色</string>
+     </property>
+     <addaction name="action_setColor"/>
+     <addaction name="action_heightRamp"/>
+    </widget>
+    <addaction name="menu_3"/>
+   </widget>
+   <widget class="QMenu" name="menu_4">
+    <property name="title">
+     <string>工具</string>
+    </property>
+    <addaction name="action_pickPoints"/>
+   </widget>
+   <addaction name="menu"/>
+   <addaction name="menu_2"/>
+   <addaction name="menu_4"/>
+  </widget>
+  <widget class="QToolBar" name="mainToolBar">
+   <property name="iconSize">
+    <size>
+     <width>30</width>
+     <height>30</height>
+    </size>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="action_open"/>
+   <addaction name="action_setColor"/>
+   <addaction name="action_heightRamp"/>
+   <addaction name="action_pickPoints"/>
+   <addaction name="actionaction_get"/>
+  </widget>
+  <widget class="QToolBar" name="toolBar">
+   <property name="windowTitle">
+    <string>toolBar</string>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>30</width>
+     <height>30</height>
+    </size>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>LeftToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="action_reset"/>
+   <addaction name="action_up"/>
+   <addaction name="action_front"/>
+   <addaction name="action_left"/>
+   <addaction name="action_back"/>
+   <addaction name="action_right"/>
+   <addaction name="action_bottom"/>
+   <addaction name="action_frontIso"/>
+   <addaction name="action_backIso"/>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+  <action name="action_up">
+   <property name="icon">
+    <iconset>
+     <normaloff>image/bottom.png</normaloff>image/bottom.png</iconset>
+   </property>
+   <property name="text">
+    <string>俯視圖</string>
+   </property>
+  </action>
+  <action name="action_front">
+   <property name="icon">
+    <iconset>
+     <normaloff>image/front.png</normaloff>image/front.png</iconset>
+   </property>
+   <property name="text">
+    <string>前視圖</string>
+   </property>
+   <property name="font">
+    <font/>
+   </property>
+  </action>
+  <action name="action_left">
+   <property name="icon">
+    <iconset>
+     <normaloff>image/left.png</normaloff>image/left.png</iconset>
+   </property>
+   <property name="text">
+    <string>左視圖</string>
+   </property>
+   <property name="toolTip">
+    <string>左視圖</string>
+   </property>
+  </action>
+  <action name="action_back">
+   <property name="icon">
+    <iconset>
+     <normaloff>image/back.png</normaloff>image/back.png</iconset>
+   </property>
+   <property name="text">
+    <string>後視圖</string>
+   </property>
+  </action>
+  <action name="action_right">
+   <property name="icon">
+    <iconset>
+     <normaloff>image/right.png</normaloff>image/right.png</iconset>
+   </property>
+   <property name="text">
+    <string>右視圖</string>
+   </property>
+  </action>
+  <action name="action_bottom">
+   <property name="icon">
+    <iconset>
+     <normaloff>image/bottom.png</normaloff>image/bottom.png</iconset>
+   </property>
+   <property name="text">
+    <string>底視圖</string>
+   </property>
+  </action>
+  <action name="action_open">
+   <property name="icon">
+    <iconset>
+     <normaloff>image/open.png</normaloff>image/open.png</iconset>
+   </property>
+   <property name="text">
+    <string>打開</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+O</string>
+   </property>
+  </action>
+  <action name="action_heightRamp">
+   <property name="icon">
+    <iconset>
+     <normaloff>image/heightRamp.png</normaloff>image/heightRamp.png</iconset>
+   </property>
+   <property name="text">
+    <string>高度渲染</string>
+   </property>
+  </action>
+  <action name="action_pickPoints">
+   <property name="icon">
+    <iconset>
+     <normaloff>image/pickPoints.png</normaloff>image/pickPoints.png</iconset>
+   </property>
+   <property name="text">
+    <string>選點</string>
+   </property>
+  </action>
+  <action name="action_frontIso">
+   <property name="icon">
+    <iconset>
+     <normaloff>image/frontIso.png</normaloff>image/frontIso.png</iconset>
+   </property>
+   <property name="text">
+    <string>前軸測</string>
+   </property>
+  </action>
+  <action name="action_backIso">
+   <property name="icon">
+    <iconset>
+     <normaloff>image/backIso.png</normaloff>image/backIso.png</iconset>
+   </property>
+   <property name="text">
+    <string>後軸測</string>
+   </property>
+  </action>
+  <action name="action_reset">
+   <property name="icon">
+    <iconset>
+     <normaloff>image/reset.png</normaloff>image/reset.png</iconset>
+   </property>
+   <property name="text">
+    <string>重設</string>
+   </property>
+  </action>
+  <action name="action_setColor">
+   <property name="icon">
+    <iconset>
+     <normaloff>image/color.png</normaloff>image/color.png</iconset>
+   </property>
+   <property name="text">
+    <string>點雲顏色</string>
+   </property>
+  </action>
+  <action name="actionaction_get">
+   <property name="icon">
+    <iconset>
+     <normaloff>image/Camera.png</normaloff>image/Camera.png</iconset>
+   </property>
+   <property name="text">
+    <string>取得影像</string>
+   </property>
+  </action>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>QVTKWidget</class>
+   <extends>QWidget</extends>
+   <header>QVTKWidget.h</header>
+  </customwidget>
+ </customwidgets>
+ <resources>
+  <include location="pclviewer.qrc"/>
+ </resources>
+ <connections/>
+</ui>
