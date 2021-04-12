@@ -85,7 +85,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="get.cpp" />
     <ClCompile Include="QHeightRampDlg.cpp" />
     <QtRcc Include="pclviewer.qrc" />
     <QtUic Include="pclviewer.ui" />

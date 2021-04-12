@@ -38,9 +38,6 @@
     <ClCompile Include="QHeightRampDlg.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="get.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="QHeightRampDlg.h">
