@@ -29,7 +29,6 @@ public:
 	imu_renderer();
 	~imu_renderer();
 
-private:
 	void get_camara_image() {
 		string motion_matrix_path = "D:\\123\\motion_matrix.text";
 		FILE* fp;

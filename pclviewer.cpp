@@ -28,6 +28,13 @@ void PCLViewer::init()
 	viewer->setupInteractor(ui->qvtkWidget->GetInteractor(), ui->qvtkWidget->GetRenderWindow());
 	// 添加坐標軸
 	viewer->addCoordinateSystem(1.0);
+
+	QStringList headerList;
+	headerList.append(tr("文件名"));
+	headerList.append(tr("文件大小"));
+	headerList.append(tr("文件路徑"));
+	ui->treeWidget->setHeaderLabels(headerList);
+	ui->treeWidget->setColumnWidth(1, 150);
 	// 事件
 	connect(&heightRampDlg, SIGNAL(setHeightRamp(int, double)), this, SLOT(setHeightRamp(int, double)));
 }
@@ -63,9 +70,32 @@ void PCLViewer::on_action_open_triggered()
 	//刷新窗口
 	ui->qvtkWidget->update();
 }
-void PCLViewer::on_action_get_triggered() {
-	
+
+// 取得影像
+void PCLViewer::on_action_getimage_triggered() {
+	imu_renderer::get_camara_image;
 }
+
+
+
+// 讀取當前資料夾的檔案
+void PCLViewer::on_pushButton_clicked() {
+	QDir dir("D:/face"); //路徑
+	dir.setFilter(QDir::Files | QDir::Hidden | QDir::NoSymLinks);
+	dir.setSorting(QDir::Time);
+
+	QFileInfoList list = dir.entryInfoList();
+	for (int i = 0; i < list.size(); ++i) {
+		QFileInfo fileInfo = list.at(i);
+		QTreeWidgetItem* newItem = new QTreeWidgetItem();
+		newItem->setText(0, fileInfo.fileName());
+		newItem->setText(1, QString::number(fileInfo.size()));
+		newItem->setText(2, fileInfo.absoluteFilePath());
+		ui->treeWidget->addTopLevelItem(newItem);
+	}
+}
+
+
 
 //重設視角
 void PCLViewer::on_action_reset_triggered()

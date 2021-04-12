@@ -76,7 +76,7 @@ public Q_SLOTS:
 
 	void on_action_left_triggered();
 
-	void on_action_get_triggered();
+	void on_action_getimage_triggered();
 
 	void on_action_back_triggered();
 
@@ -86,6 +86,7 @@ public Q_SLOTS:
 
 	void on_action_bottom_triggered();
 
+	void on_pushButton_clicked();
 
 	void on_action_frontIso_triggered();
 
