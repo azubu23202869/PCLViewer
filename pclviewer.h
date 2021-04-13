@@ -8,7 +8,6 @@
 // mybase
 #include "ui_pclviewer.h"
 #include "QHeightRampDlg.h"
-#include "AllinOne.hpp"
 
 
 // Qt
@@ -19,6 +18,8 @@
 #include <QColorDialog>
 #include <QtWidgets/QApplication>
 #include <QTextCodec>
+#include <QDebug>
+#include <QTreeWidget> 
 
 // Point Cloud Library
 #include <pcl/io/pcd_io.h>
@@ -86,8 +87,7 @@ public Q_SLOTS:
 
 	void on_action_bottom_triggered();
 
-	void on_pushButton_clicked();
-
+	
 	void on_action_frontIso_triggered();
 
 
@@ -100,22 +100,47 @@ public Q_SLOTS:
 	void on_action_heightRamp_triggered();
 
 
+	void on_treeWidget_currentItemChanged(QTreeWidgetItem* current, QTreeWidgetItem* previous);
+
 	void setHeightRamp(int, double);
 
 
 protected:
+	// 點雲宣告
+	//----------------------------------------------------------------
 	PointCloudT::Ptr m_currentCloud;
 
 	QList<PointCloudT::Ptr> m_heightCloudList;
 
 	boost::shared_ptr<pcl::visualization::PCLVisualizer> viewer;
+	//----------------------------------------------------------------
+
+	// 其他宣告
+	//----------------------------------------------------------------
 
 	PointT p_min, p_max;
 
 	QHeightRampDlg heightRampDlg;
 
+	QString FileName;
+
 	double maxLen;
 
+	enum treeItemType { itTopItem = 1001, itGroupItem, itImageItem };
+	enum treeColNum { colItem = 0 };
+
+
+	// 初始化函數
+	//----------------------------------------------------------------
 	void init();
+
+	void iniTree();  
+
+	// 功能函數
+	//----------------------------------------------------------------
+	void ReadPclFile(const QString& fullPathName);
+	QFileInfoList allfile(QTreeWidgetItem* root, QString path);
+
+
 
 };
