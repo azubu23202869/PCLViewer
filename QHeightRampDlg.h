@@ -1,7 +1,7 @@
 #pragma once
 #pragma execution_character_set("utf-8")
-#include <QWidget>
-#include <QMessageBox>
+
+#include "QTObject.h"
 #include "ui_QHeightRampDlg.h"
 
 namespace Ui{

@@ -9,8 +9,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1403</width>
-    <height>896</height>
+    <width>1440</width>
+    <height>900</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -18,24 +18,205 @@
   </property>
   <widget class="QWidget" name="centralWidget">
    <layout class="QGridLayout" name="gridLayout">
-    <item row="0" column="2">
-     <widget class="QTreeWidget" name="treeWidget">
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Fixed" vsizetype="Expanding">
-        <horstretch>0</horstretch>
-        <verstretch>0</verstretch>
-       </sizepolicy>
-      </property>
-     </widget>
-    </item>
-    <item row="0" column="0">
-     <widget class="QVTKWidget" name="qvtkWidget"/>
-    </item>
-    <item row="1" column="2">
-     <widget class="QPushButton" name="pushButton">
-      <property name="text">
-       <string>PushButton</string>
-      </property>
+    <item row="0" column="1">
+     <widget class="QStackedWidget" name="stackedWidget">
+      <widget class="QWidget" name="page">
+       <widget class="QVTKWidget" name="qvtkWidget">
+        <property name="geometry">
+         <rect>
+          <x>230</x>
+          <y>0</y>
+          <width>860</width>
+          <height>800</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QTreeWidget" name="treeWidgetFilelist">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>0</y>
+          <width>221</width>
+          <height>801</height>
+         </rect>
+        </property>
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Fixed" vsizetype="Expanding">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <column>
+         <property name="text">
+          <string notr="true">1</string>
+         </property>
+        </column>
+       </widget>
+       <widget class="QPushButton" name="btnUpdate">
+        <property name="geometry">
+         <rect>
+          <x>1100</x>
+          <y>0</y>
+          <width>191</width>
+          <height>50</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Update</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="btn2D">
+        <property name="geometry">
+         <rect>
+          <x>1300</x>
+          <y>0</y>
+          <width>50</width>
+          <height>50</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>2D</string>
+        </property>
+       </widget>
+       <widget class="QTreeWidget" name="treeWidgetParameter">
+        <property name="geometry">
+         <rect>
+          <x>1100</x>
+          <y>50</y>
+          <width>271</width>
+          <height>751</height>
+         </rect>
+        </property>
+        <column>
+         <property name="text">
+          <string notr="true">1</string>
+         </property>
+        </column>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="page_2">
+       <widget class="QPushButton" name="btnPlay">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>10</y>
+          <width>80</width>
+          <height>80</height>
+         </rect>
+        </property>
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="icon">
+         <iconset>
+          <normaloff>image/play.png</normaloff>image/play.png</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>80</width>
+          <height>80</height>
+         </size>
+        </property>
+        <property name="checkable">
+         <bool>false</bool>
+        </property>
+        <property name="autoRepeat">
+         <bool>false</bool>
+        </property>
+        <property name="autoExclusive">
+         <bool>false</bool>
+        </property>
+        <property name="autoDefault">
+         <bool>false</bool>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="btnPause">
+        <property name="geometry">
+         <rect>
+          <x>110</x>
+          <y>10</y>
+          <width>80</width>
+          <height>80</height>
+         </rect>
+        </property>
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="icon">
+         <iconset>
+          <normaloff>image/pause.png</normaloff>image/pause.png</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>80</width>
+          <height>80</height>
+         </size>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="btn3D">
+        <property name="geometry">
+         <rect>
+          <x>1300</x>
+          <y>0</y>
+          <width>50</width>
+          <height>50</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>3D</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="depth_label">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>110</y>
+          <width>650</width>
+          <height>650</height>
+         </rect>
+        </property>
+        <property name="autoFillBackground">
+         <bool>false</bool>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: white</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QLabel" name="rgb_label">
+        <property name="geometry">
+         <rect>
+          <x>700</x>
+          <y>110</y>
+          <width>650</width>
+          <height>650</height>
+         </rect>
+        </property>
+        <property name="autoFillBackground">
+         <bool>false</bool>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: white</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </widget>
      </widget>
     </item>
    </layout>
@@ -45,7 +226,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1403</width>
+     <width>1440</width>
      <height>21</height>
     </rect>
    </property>
@@ -78,7 +259,10 @@
    <addaction name="menu_2"/>
    <addaction name="menu_4"/>
   </widget>
-  <widget class="QToolBar" name="mainToolBar">
+  <widget class="QToolBar" name="toolBar_Top">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
    <property name="iconSize">
     <size>
      <width>30</width>
@@ -97,7 +281,7 @@
    <addaction name="action_pickPoints"/>
    <addaction name="actionaction_getimage"/>
   </widget>
-  <widget class="QToolBar" name="toolBar">
+  <widget class="QToolBar" name="toolBar_Left">
    <property name="windowTitle">
     <string>toolBar</string>
    </property>

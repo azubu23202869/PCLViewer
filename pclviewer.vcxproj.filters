@@ -24,9 +24,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <QtRcc Include="pclviewer.qrc">
-      <Filter>Resource Files</Filter>
-    </QtRcc>
     <ClCompile Include="pclviewer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -49,15 +46,20 @@
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="pclviewer.ui">
-      <Filter>Resource Files</Filter>
+      <Filter>Form Files</Filter>
     </QtUic>
     <QtUic Include="QHeightRampDlg.ui">
-      <Filter>Resource Files</Filter>
+      <Filter>Form Files</Filter>
     </QtUic>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="AllinOne.hpp">
+    <ClInclude Include="QTObject.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <QtRcc Include="pclviewer.qrc">
+      <Filter>Resource Files</Filter>
+    </QtRcc>
   </ItemGroup>
 </Project>
