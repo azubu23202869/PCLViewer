@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #pragma execution_character_set("utf-8")
 
 
@@ -45,6 +45,8 @@ public Q_SLOTS:
 
 	void on_action_bottom_triggered();
 
+	void on_pushButton_clicked();
+
 	void on_action_frontIso_triggered();
 
 	void on_action_backIso_triggered();
@@ -63,45 +65,29 @@ public Q_SLOTS:
 
 	void on_treeWidgetFilelist_currentItemChanged(QTreeWidgetItem* current, QTreeWidgetItem* previous);
 
+	void on_treeWidget_currentItemChanged(QTreeWidgetItem* current, QTreeWidgetItem* previous);
+
 	void setHeightRamp(int, double);
 
 	void receiveFrame(QImage rgb, QImage depth);
 protected:
-	// ÂI¶³«Å§i
+	// ï¿½Iï¿½ï¿½ï¿½Å§i
 	//----------------------------------------------------------------
 	PointCloudT::Ptr m_currentCloud;
 
 	QList<PointCloudT::Ptr> m_heightCloudList;
 
 	boost::shared_ptr<pcl::visualization::PCLVisualizer> viewer;
-	//----------------------------------------------------------------
 
-	// ¨ä¥L«Å§i
+	// ï¿½ï¿½Lï¿½Å§i
 	//----------------------------------------------------------------
 
 	PointT p_min, p_max;
 
 	QHeightRampDlg heightRampDlg;
 
-	QString FileName;
-
-
 	double maxLen;
 
-	enum treeItemType { itTopItem = 1001, itGroupItem, itImageItem };
-	enum treeColNum { colItem = 0 };
+	void init();
 
-
-	// ªì©l¤Æ¨ç¼Æ
-	//----------------------------------------------------------------
-	void initPCL();
-
-	void initTreeWidget();
-	
-	void TreeWidgetclr();
-
-	// ¥\¯à¨ç¼Æ
-	//----------------------------------------------------------------
-	void ReadPclFile(const QString& fullPathName);
-	QFileInfoList AllFile(QTreeWidgetItem* root, const QString& path);
 };

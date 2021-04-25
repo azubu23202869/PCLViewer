@@ -9,9 +9,8 @@ PCLViewer::PCLViewer(QWidget* parent) :
 
 
 	//初始化
-	//----------------------------------------------------------------
-	initPCL();
-	initTreeWidget();
+	init();
+	iniTree();
 
 	//----------------------------------------------------------------
 }
@@ -35,6 +34,12 @@ void PCLViewer::initPCL()
 	// 添加坐標軸
 	viewer->addCoordinateSystem(1.0);
 
+	QStringList headerList;
+	headerList.append(tr("文件名"));
+	headerList.append(tr("文件大小"));
+	headerList.append(tr("文件路徑"));
+	ui->treeWidget->setHeaderLabels(headerList);
+	ui->treeWidget->setColumnWidth(1, 150);
 	// 事件
 	connect(&heightRampDlg, SIGNAL(setHeightRamp(int, double)), this, SLOT(setHeightRamp(int, double)));
 }
@@ -78,42 +83,36 @@ void PCLViewer::ReadPclFile(const QString& fullPathName) {
 
 
 
-void PCLViewer::initTreeWidget()
+void PCLViewer::iniTree()
 {
+	//初始化TreeWidget
+	QIcon icon;
+	QString path = "C:/Users/azubu/Desktop/pclviewer";
+	icon.addFile("./image/open.png");    //設置icon
 	QStringList headerList;
 	headerList.append(tr("檔案名稱"));
-	ui->treeWidgetFilelist->setHeaderLabels(headerList);
-	headerList.clear();
-	headerList.append(tr("參數詳情"));
-	ui->treeWidgetParameter->setHeaderLabels(headerList);
-	fs::create_directories("./PointCloudFile/PLYFile");
-	fs::create_directories("./PointCloudFile/GetJPG");
-	fs::create_directories("./PointCloudFile/GetPNG");
-
-	//創建頂層
-	QString path = "./PointCloudFile/PLYFile";
-	QIcon icon;
-	icon.addFile("./image/open.png");    //設置icon
+	ui->treeWidget->setHeaderLabels(headerList);
 	QTreeWidgetItem* item = new QTreeWidgetItem(PCLViewer::itTopItem);
 	item->setText(colItem, path);
 	item->setIcon(colItem, QIcon(icon));
 	item->setCheckState(1, Qt::Checked);
-	ui->treeWidgetFilelist->addTopLevelItem(item);
-	AllFile(item, path);
-
+	allfile(item, path);
+	ui->treeWidget->addTopLevelItem(item);
 	/*
-	QTreeWidgetItem* item = new QTreeWidgetItem(PCLViewer::itTopItem);
+		QTreeWidgetItem* item = new QTreeWidgetItem(PCLViewer::itTopItem);
 	item->setIcon(PCLViewer::colItem, icon);        //第一行圖標
 	item->setText(PCLViewer::colItem, "PCD文件");  //第一列的文字
 	item->setFlags(Qt::ItemIsSelectable | Qt::ItemIsUserCheckable | Qt::ItemIsEnabled | Qt::ItemIsAutoTristate);
 	item->setCheckState(colItem, Qt::Checked);
 	item->setData(PCLViewer::colItem, Qt::UserRole, QVariant(dataStr));
 	ui->treeWidget->setHeaderItem(item);           //添加頂層節點
+	
+	
 	*/
 }
 
 // 讀取當前目錄
-QFileInfoList PCLViewer::AllFile(QTreeWidgetItem* root,const QString& path) {
+QFileInfoList PCLViewer::allfile(QTreeWidgetItem* root, QString path) {
 	/*添加path路徑文件*/
 	QDir dir(path);          //遍歷各子目錄
 	QDir dir_file(path);    //遍歷子目錄中所有文件
@@ -129,103 +128,39 @@ QFileInfoList PCLViewer::AllFile(QTreeWidgetItem* root,const QString& path) {
 		child->setCheckState(1, Qt::Checked);
 		root->addChild(child);
 	}
-	QFileInfoList file_list = dir.entryInfoList(QDir::Files | QDir::Hidden | QDir::NoSymLinks);
-	QFileInfoList folder_list = dir.entryInfoList(QDir::Dirs | QDir::NoDotAndDotDot);   //獲取當前所有目錄
-	for (int i = 0; i != folder_list.size(); i++)         //自動遞迴添加到各目錄到上一級目錄
-	{
 
-		QString namepath = folder_list.at(i).absoluteFilePath();    //取得路徑
-		QFileInfo folderinfo = folder_list.at(i);
-		QString name = folderinfo.fileName();      //取得目錄名
-		QTreeWidgetItem* childroot = new QTreeWidgetItem(PCLViewer::itGroupItem);
-		childroot->setText(colItem, name);
-		childroot->setIcon(0, QIcon("./image/open.png"));
-		childroot->setCheckState(1, Qt::Checked);
-		root->addChild(childroot);              //將當前目錄添加成path的子項目
-		QFileInfoList child_file_list = AllFile(childroot, namepath);          //進行遞迴
-		file_list.append(child_file_list);
-		file_list.append(name);
-	}
-	return file_list;
+// 取得影像
+void PCLViewer::on_action_getimage_triggered() {
+	imu_renderer::get_camara_image;
 }
-
-
-void PCLViewer::TreeWidgetclr() {
-	ui->treeWidgetFilelist->clear();
-	ui->treeWidgetParameter->clear();
-}
-
-void PCLViewer::on_treeWidgetFilelist_currentItemChanged(QTreeWidgetItem* current, QTreeWidgetItem* previous)
-{
-	QString filename;
-	QString dir = "./PLYFile/";
-
-	//列表響應
-	if (current == Q_NULLPTR) return;
-
-	int var = current->type();
-	switch (var) {
-	case itTopItem:
-		break;
-
-	case itGroupItem:
-		break;
-
-	case itImageItem:
-		filename = current->text(current->data(colItem,Qt::UserRole).toInt());
-		ReadPclFile(dir + filename);
-		break;
-	}
-}
-
-
-
-// 收到Frame
-void PCLViewer::receiveFrame(QImage rgb, QImage depth)
-{
-	ui->rgb_label->setPixmap(QPixmap::fromImage(rgb));
-	ui->depth_label->setPixmap(QPixmap::fromImage(depth));
-}
-
-
-// 切換頁面
-//----------------------------------------------------------------
-void PCLViewer::on_btn2D_clicked() {
-	ui->stackedWidget->setCurrentIndex(1);
-	ui->toolBar_Top->setEnabled(0);
-	ui->toolBar_Left->setEnabled(0);
-}
-
-
-void PCLViewer::on_btn3D_clicked() {
-	ui->stackedWidget->setCurrentIndex(0);
-	ui->toolBar_Top->setEnabled(1);
-	ui->toolBar_Left->setEnabled(1);
-}
-//----------------------------------------------------------------
-// 頁面1
-//----------------------------------------------------------------
-
-
-
-
-
 
 //----------------------------------------------------------------
 // 頁面2
 //----------------------------------------------------------------
 
 
-void PCLViewer::on_btnPlay_clicked() {
-	
-}
+// 讀取當前資料夾的檔案
+void PCLViewer::on_pushButton_clicked() {
+	QDir dir("D:/face"); //路徑
+	dir.setFilter(QDir::Files | QDir::Hidden | QDir::NoSymLinks);
+	dir.setSorting(QDir::Time);
 
-void PCLViewer::on_btnPause_clicked() {
-
+	QFileInfoList list = dir.entryInfoList();
+	for (int i = 0; i < list.size(); ++i) {
+		QFileInfo fileInfo = list.at(i);
+		QTreeWidgetItem* newItem = new QTreeWidgetItem();
+		newItem->setText(0, fileInfo.fileName());
+		newItem->setText(1, QString::number(fileInfo.size()));
+		newItem->setText(2, fileInfo.absoluteFilePath());
+		ui->treeWidget->addTopLevelItem(newItem);
+	}
 }
 
 
 //----------------------------------------------------------------
+
+
+
 
 
 //重設視角
