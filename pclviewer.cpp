@@ -35,6 +35,7 @@ void PCLViewer::initPCL()
 	// 添加坐標軸
 	viewer->addCoordinateSystem(1.0);
 
+>>>>>>>>> Temporary merge branch 2
 	// 事件
 	connect(&heightRampDlg, SIGNAL(setHeightRamp(int, double)), this, SLOT(setHeightRamp(int, double)));
 }
@@ -78,6 +79,17 @@ void PCLViewer::ReadPclFile(const QString& fullPathName) {
 
 
 
+<<<<<<<<< Temporary merge branch 1
+void PCLViewer::iniTree()
+{
+	//初始化TreeWidget
+	QIcon icon;
+	QString path = "C:/Users/azubu/Desktop/pclviewer";
+	icon.addFile("./image/open.png");    //設置icon
+	QStringList headerList;
+	headerList.append(tr("檔案名稱"));
+	ui->treeWidget->setHeaderLabels(headerList);
+=========
 void PCLViewer::initTreeWidget()
 {
 	QStringList headerList;
@@ -94,26 +106,43 @@ void PCLViewer::initTreeWidget()
 	QString path = "./PointCloudFile/PLYFile";
 	QIcon icon;
 	icon.addFile("./image/open.png");    //設置icon
+>>>>>>>>> Temporary merge branch 2
 	QTreeWidgetItem* item = new QTreeWidgetItem(PCLViewer::itTopItem);
 	item->setText(colItem, path);
 	item->setIcon(colItem, QIcon(icon));
 	item->setCheckState(1, Qt::Checked);
+<<<<<<<<< Temporary merge branch 1
+	allfile(item, path);
+	ui->treeWidget->addTopLevelItem(item);
+	/*
+		QTreeWidgetItem* item = new QTreeWidgetItem(PCLViewer::itTopItem);
+=========
 	ui->treeWidgetFilelist->addTopLevelItem(item);
 	AllFile(item, path);
 
 	/*
 	QTreeWidgetItem* item = new QTreeWidgetItem(PCLViewer::itTopItem);
+>>>>>>>>> Temporary merge branch 2
 	item->setIcon(PCLViewer::colItem, icon);        //第一行圖標
 	item->setText(PCLViewer::colItem, "PCD文件");  //第一列的文字
 	item->setFlags(Qt::ItemIsSelectable | Qt::ItemIsUserCheckable | Qt::ItemIsEnabled | Qt::ItemIsAutoTristate);
 	item->setCheckState(colItem, Qt::Checked);
 	item->setData(PCLViewer::colItem, Qt::UserRole, QVariant(dataStr));
 	ui->treeWidget->setHeaderItem(item);           //添加頂層節點
+<<<<<<<<< Temporary merge branch 1
+	
+	
+=========
+>>>>>>>>> Temporary merge branch 2
 	*/
 }
 
 // 讀取當前目錄
-QFileInfoList PCLViewer::AllFile(QTreeWidgetItem* root, const QString& path) {
+<<<<<<<<< Temporary merge branch 1
+QFileInfoList PCLViewer::allfile(QTreeWidgetItem* root, QString path) {
+=========
+QFileInfoList PCLViewer::AllFile(QTreeWidgetItem* root,const QString& path) {
+>>>>>>>>> Temporary merge branch 2
 	/*添加path路徑文件*/
 	QDir dir(path);          //遍歷各子目錄
 	QDir dir_file(path);    //遍歷子目錄中所有文件
@@ -129,8 +158,16 @@ QFileInfoList PCLViewer::AllFile(QTreeWidgetItem* root, const QString& path) {
 		child->setCheckState(1, Qt::Checked);
 		root->addChild(child);
 	}
+<<<<<<<<< Temporary merge branch 1
+
+
 	QFileInfoList file_list = dir.entryInfoList(QDir::Files | QDir::Hidden | QDir::NoSymLinks);
 	QFileInfoList folder_list = dir.entryInfoList(QDir::Dirs | QDir::NoDotAndDotDot);   //獲取當前所有目錄
+
+=========
+	QFileInfoList file_list = dir.entryInfoList(QDir::Files | QDir::Hidden | QDir::NoSymLinks);
+	QFileInfoList folder_list = dir.entryInfoList(QDir::Dirs | QDir::NoDotAndDotDot);   //獲取當前所有目錄
+>>>>>>>>> Temporary merge branch 2
 	for (int i = 0; i != folder_list.size(); i++)         //自動遞迴添加到各目錄到上一級目錄
 	{
 
@@ -142,11 +179,23 @@ QFileInfoList PCLViewer::AllFile(QTreeWidgetItem* root, const QString& path) {
 		childroot->setIcon(0, QIcon("./image/open.png"));
 		childroot->setCheckState(1, Qt::Checked);
 		root->addChild(childroot);              //將當前目錄添加成path的子項目
+<<<<<<<<< Temporary merge branch 1
+		QFileInfoList child_file_list = allfile(childroot, namepath);          //進行遞迴
+=========
 		QFileInfoList child_file_list = AllFile(childroot, namepath);          //進行遞迴
+>>>>>>>>> Temporary merge branch 2
 		file_list.append(child_file_list);
 		file_list.append(name);
 	}
 	return file_list;
+<<<<<<<<< Temporary merge branch 1
+}
+
+void PCLViewer::on_treeWidget_currentItemChanged(QTreeWidgetItem* current, QTreeWidgetItem* previous)
+{
+	QString filename;
+	QString dir = "./pointCloudFiles/";
+=========
 }
 
 
@@ -159,6 +208,7 @@ void PCLViewer::on_treeWidgetFilelist_currentItemChanged(QTreeWidgetItem* curren
 {
 	QString filename;
 	QString dir = "./PLYFile/";
+>>>>>>>>> Temporary merge branch 2
 
 	//列表響應
 	if (current == Q_NULLPTR) return;
@@ -167,16 +217,45 @@ void PCLViewer::on_treeWidgetFilelist_currentItemChanged(QTreeWidgetItem* curren
 	switch (var) {
 	case itTopItem:
 		break;
+<<<<<<<<< Temporary merge branch 1
 
 	case itGroupItem:
 		break;
 
+=========
+
+	case itGroupItem:
+		break;
+
+>>>>>>>>> Temporary merge branch 2
 	case itImageItem:
-		filename = current->text(current->data(colItem, Qt::UserRole).toInt());
+		filename = current->text(current->data(colItem,Qt::UserRole).toInt());
 		ReadPclFile(dir + filename);
 		break;
 	}
+
 }
+
+
+// 取得影像
+void PCLViewer::on_action_getimage_triggered() {
+
+
+
+
+
+
+
+
+
+
+}
+
+//----------------------------------------------------------------
+// 頁面2
+//----------------------------------------------------------------
+
+
 
 
 
@@ -188,36 +267,23 @@ void PCLViewer::receiveFrame(QImage rgb, QImage depth)
 }
 
 
-// 切換頁面
-//----------------------------------------------------------------
-void PCLViewer::on_btn2D_clicked() {
-	ui->stackedWidget->setCurrentIndex(1);
-	ui->toolBar_Top->setEnabled(0);
-	ui->toolBar_Left->setEnabled(0);
+	QFileInfoList list = dir.entryInfoList();
+	for (int i = 0; i < list.size(); ++i) {
+		QFileInfo fileInfo = list.at(i);
+		QTreeWidgetItem* newItem = new QTreeWidgetItem();
+		newItem->setText(0, fileInfo.fileName());
+		newItem->setText(1, QString::number(fileInfo.size()));
+		newItem->setText(2, fileInfo.absoluteFilePath());
+		ui->treeWidget->addTopLevelItem(newItem);
+	}
 }
 
 
-void PCLViewer::on_btn3D_clicked() {
-	ui->stackedWidget->setCurrentIndex(0);
-	ui->toolBar_Top->setEnabled(1);
-	ui->toolBar_Left->setEnabled(1);
-}
-//----------------------------------------------------------------
-// 頁面1
-//----------------------------------------------------------------
-
-
-
-
-
-
-//----------------------------------------------------------------
-// 頁面2
 //----------------------------------------------------------------
 
 
 void PCLViewer::on_btnPlay_clicked() {
-
+	
 }
 
 void PCLViewer::on_btnPause_clicked() {
@@ -225,7 +291,6 @@ void PCLViewer::on_btnPause_clicked() {
 }
 
 
-//----------------------------------------------------------------
 
 
 //重設視角
