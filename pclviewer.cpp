@@ -42,8 +42,8 @@ void PCLViewer::initPCL()
 void PCLViewer::on_action_open_triggered()
 {
 	// 取得點雲路徑
-	QString fileName = QFileDialog::getOpenFileName(this,"選取點雲文件",".//","點雲文件(*.pcd);;所有文件(*.*)");
-	
+	QString fileName = QFileDialog::getOpenFileName(this, "選取點雲文件", ".//", "點雲文件(*.pcd);;所有文件(*.*)");
+
 	if (!fileName.isEmpty())
 	{
 		ReadPclFile(fileName);
@@ -113,7 +113,7 @@ void PCLViewer::initTreeWidget()
 }
 
 // 讀取當前目錄
-QFileInfoList PCLViewer::AllFile(QTreeWidgetItem* root,const QString& path) {
+QFileInfoList PCLViewer::AllFile(QTreeWidgetItem* root, const QString& path) {
 	/*添加path路徑文件*/
 	QDir dir(path);          //遍歷各子目錄
 	QDir dir_file(path);    //遍歷子目錄中所有文件
@@ -172,7 +172,7 @@ void PCLViewer::on_treeWidgetFilelist_currentItemChanged(QTreeWidgetItem* curren
 		break;
 
 	case itImageItem:
-		filename = current->text(current->data(colItem,Qt::UserRole).toInt());
+		filename = current->text(current->data(colItem, Qt::UserRole).toInt());
 		ReadPclFile(dir + filename);
 		break;
 	}
@@ -217,7 +217,7 @@ void PCLViewer::on_btn3D_clicked() {
 
 
 void PCLViewer::on_btnPlay_clicked() {
-	
+
 }
 
 void PCLViewer::on_btnPause_clicked() {

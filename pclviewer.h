@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #pragma execution_character_set("utf-8")
 
 
@@ -67,7 +67,7 @@ public Q_SLOTS:
 
 	void receiveFrame(QImage rgb, QImage depth);
 protected:
-	// ÂI¶³«Å§i
+	// é»é›²å®£å‘Š
 	//----------------------------------------------------------------
 	PointCloudT::Ptr m_currentCloud;
 
@@ -76,7 +76,7 @@ protected:
 	boost::shared_ptr<pcl::visualization::PCLVisualizer> viewer;
 	//----------------------------------------------------------------
 
-	// ¨ä¥L«Å§i
+	// å…¶ä»–å®£å‘Š
 	//----------------------------------------------------------------
 
 	PointT p_min, p_max;
@@ -92,15 +92,15 @@ protected:
 	enum treeColNum { colItem = 0 };
 
 
-	// ªì©l¤Æ¨ç¼Æ
+	// åˆå§‹åŒ–å‡½æ•¸
 	//----------------------------------------------------------------
 	void initPCL();
 
 	void initTreeWidget();
-	
+
 	void TreeWidgetclr();
 
-	// ¥\¯à¨ç¼Æ
+	// åŠŸèƒ½å‡½æ•¸
 	//----------------------------------------------------------------
 	void ReadPclFile(const QString& fullPathName);
 	QFileInfoList AllFile(QTreeWidgetItem* root, const QString& path);
