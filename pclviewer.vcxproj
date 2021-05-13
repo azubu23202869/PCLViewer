@@ -36,7 +36,8 @@
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
     <Import Project="opencv_realsense.props" />
-    <Import Project="PCL1.11.1_VTK8.20_R.props" />
+    <Import Project="qt_vtk_R.props" />
+    <Import Project="mongodb.props" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt_defaults.props')">
@@ -86,6 +87,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="calc.cpp" />
+    <ClCompile Include="Camera.cpp" />
+    <ClCompile Include="Mongodb.cpp" />
     <ClCompile Include="QHeightRampDlg.cpp" />
     <QtRcc Include="pclviewer.qrc" />
     <QtUic Include="pclviewer.ui" />
@@ -98,6 +102,9 @@
     <QtMoc Include="QHeightRampDlg.h" />
   </ItemGroup>
   <ItemGroup>
+    <QtMoc Include="Camera.h" />
+    <ClInclude Include="Mongodb.h" />
+    <ClInclude Include="calc.h" />
     <ClInclude Include="QTObject.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

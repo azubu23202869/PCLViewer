@@ -1,130 +1,19 @@
 ﻿#pragma once
 #pragma execution_character_set("utf-8")
-
-
 // mybase
 #include "ui_pclviewer.h"
 #include "QHeightRampDlg.h"
+#include "Camera.h"
+#include "calc.h"
 
-
-
-// Qt
-#include <QtWidgets/QMainWindow>
-#include <QFileDialog>
-#include <QString>
-#include <QMessageBox>
-#include <QColorDialog>
-#include <QtWidgets/QApplication>
-#include <QTextCodec>
-#include <QDebug>
-#include <QTreeWidget> 
-
-// Point Cloud Library
-#include <pcl/io/pcd_io.h>
-#include <pcl/io/ply_io.h>
-#include <pcl/point_cloud.h>
-#include <pcl/point_types.h>
-#include <pcl/common/common.h>
-#include <pcl/visualization/pcl_visualizer.h>
-#include <pcl/filters/passthrough.h>
-#include <boost/thread/thread.hpp>
-
-// Visualization Toolkit (VTK)
-#include <vtkAutoInit.h> 
-#include <vtkRenderWindow.h>
-#include <vtkOutputWindow.h>
-VTK_MODULE_INIT(vtkRenderingOpenGL2);
-VTK_MODULE_INIT(vtkInteractionStyle);
-
-//realsense
-#include <librealsense2/rs.hpp>
-
-// include OpenCV header file
-#include <opencv2/opencv.hpp>
-=========
->>>>>>>>> Temporary merge branch 2
-
-
-
-// Qt
-#include <QtWidgets/QMainWindow>
-#include <QFileDialog>
-#include <QString>
-#include <QMessageBox>
-#include <QColorDialog>
-#include <QtWidgets/QApplication>
-#include <QTextCodec>
-#include <QDebug>
-#include <QTreeWidget> 
-
-// Point Cloud Library
-#include <pcl/io/pcd_io.h>
-#include <pcl/io/ply_io.h>
-#include <pcl/point_cloud.h>
-#include <pcl/point_types.h>
-#include <pcl/common/common.h>
-#include <pcl/visualization/pcl_visualizer.h>
-#include <pcl/filters/passthrough.h>
-#include <boost/thread/thread.hpp>
-
-// Visualization Toolkit (VTK)
-#include <vtkAutoInit.h> 
-#include <vtkRenderWindow.h>
-#include <vtkOutputWindow.h>
-VTK_MODULE_INIT(vtkRenderingOpenGL2);
-VTK_MODULE_INIT(vtkInteractionStyle);
-
-//realsense
-#include <librealsense2/rs.hpp>
-
-// include OpenCV header file
-#include <opencv2/opencv.hpp>
-=========
->>>>>>>>> Temporary merge branch 2
-
-
-
-// Qt
-#include <QtWidgets/QMainWindow>
-#include <QFileDialog>
-#include <QString>
-#include <QMessageBox>
-#include <QColorDialog>
-#include <QtWidgets/QApplication>
-#include <QTextCodec>
-#include <QDebug>
-#include <QTreeWidget> 
-
-// Point Cloud Library
-#include <pcl/io/pcd_io.h>
-#include <pcl/io/ply_io.h>
-#include <pcl/point_cloud.h>
-#include <pcl/point_types.h>
-#include <pcl/common/common.h>
-#include <pcl/visualization/pcl_visualizer.h>
-#include <pcl/filters/passthrough.h>
-#include <boost/thread/thread.hpp>
-
-// Visualization Toolkit (VTK)
-#include <vtkAutoInit.h> 
-#include <vtkRenderWindow.h>
-#include <vtkOutputWindow.h>
-VTK_MODULE_INIT(vtkRenderingOpenGL2);
-VTK_MODULE_INIT(vtkInteractionStyle);
-
-//realsense
-#include <librealsense2/rs.hpp>
-
-// include OpenCV header file
-#include <opencv2/opencv.hpp>
-=========
->>>>>>>>> Temporary merge branch 2
-
-//QT
+// QT
 #include "QTObject.h"
 
-typedef pcl::PointXYZ PointT;
-typedef pcl::PointCloud<PointT> PointCloudT;
+typedef pcl::PointXYZRGB PointT1;
+typedef pcl::PointCloud<PointT1> PointCloudT1;
+
+typedef pcl::PointXYZRGB PointT2;
+typedef pcl::PointCloud<PointT2> PointCloudT2;
 
 namespace Ui {
 	class PCLViewer;
@@ -133,6 +22,7 @@ namespace Ui {
 class PCLViewer : public QMainWindow
 {
 	Q_OBJECT
+	QThread workThread;
 
 public:
 	explicit PCLViewer(QWidget* parent = 0);
@@ -159,10 +49,6 @@ public Q_SLOTS:
 
 	void on_action_bottom_triggered();
 
-<<<<<<<<< Temporary merge branch 1
-	
-=========
->>>>>>>>> Temporary merge branch 2
 	void on_action_frontIso_triggered();
 
 	void on_action_backIso_triggered();
@@ -171,73 +57,73 @@ public Q_SLOTS:
 
 	void on_action_heightRamp_triggered();
 
-	void on_btn2D_clicked();
+	void on_action_getimage_triggered();
 
-	void on_btn3D_clicked();
+	void on_action_play_triggered();
 
-	void on_btnPlay_clicked();
+	void on_action_delete_triggered();
 
-	void on_btnPause_clicked();
 
+	void on_action_update_triggered();
 	void on_treeWidgetFilelist_currentItemChanged(QTreeWidgetItem* current, QTreeWidgetItem* previous);
-
-	void on_treeWidget_currentItemChanged(QTreeWidgetItem* current, QTreeWidgetItem* previous);
 
 	void setHeightRamp(int, double);
 
 	void receiveFrame(QImage rgb, QImage depth);
 protected:
-	// �I���ŧi
+	// 點雲宣告
 	//----------------------------------------------------------------
-	PointCloudT::Ptr m_currentCloud;
+	PointCloudT1::Ptr m_currentCloud;
 
-	QList<PointCloudT::Ptr> m_heightCloudList;
+	QList<PointCloudT1::Ptr> m_heightCloudList;
 
 	boost::shared_ptr<pcl::visualization::PCLVisualizer> viewer;
-
-	// ��L�ŧi
 	//----------------------------------------------------------------
 
-	PointT p_min, p_max;
+	// 其他宣告
+	//----------------------------------------------------------------
+
+	PointT1 p_min, p_max;
 
 	QHeightRampDlg heightRampDlg;
 
 	QString FileName;
 
-<<<<<<<<< Temporary merge branch 1
-=========
+	rs2::config cfg;
 
->>>>>>>>> Temporary merge branch 2
+	rs2::pipeline pipe;
+
+	rs2::frameset frames;
+
+	QThreadPool* pool;
+
+	bool camera_running = true;
+
 	double maxLen;
 
 	enum treeItemType { itTopItem = 1001, itGroupItem, itImageItem };
-	enum treeColNum { colItem = 0 };
+	enum treeColNum { colItem = 0, colItem1 = 1 };
 
 
 	// 初始化函數
 	//----------------------------------------------------------------
-<<<<<<<<< Temporary merge branch 1
-	void init();
-
-	void iniTree();  
-
-	// 功能函數
-	//----------------------------------------------------------------
-	void ReadPclFile(const QString& fullPathName);
-	QFileInfoList allfile(QTreeWidgetItem* root, QString path);
-
-
-
-=========
 	void initPCL();
 
 	void initTreeWidget();
-	
-	void TreeWidgetclr();
+
+	void initTreeWidgetFileList();
+
+	void initTreeWidgetParameter();
+
+	void uiEnable();
+
+	void uiDisable();
 
 	// 功能函數
 	//----------------------------------------------------------------
 	void ReadPclFile(const QString& fullPathName);
+	void ReadPara(const QString& Plypath);
 	QFileInfoList AllFile(QTreeWidgetItem* root, const QString& path);
->>>>>>>>> Temporary merge branch 2
+	void tokenize(string& str, char delim, vector<string>& out);
+	stringstream Readcalc(const QString& Plypath);
 };

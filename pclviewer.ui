@@ -9,208 +9,69 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1440</width>
-    <height>900</height>
+    <width>1411</width>
+    <height>866</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>PCLViewer</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">background-color:qlineargradient(spread:pad, x1:0.528, y1:1, x2:0.511, y2:0, stop:0 rgba(125, 125, 125, 255), stop:0.471591 rgba(219, 219, 219, 255))</string>
+  </property>
   <widget class="QWidget" name="centralWidget">
    <layout class="QGridLayout" name="gridLayout">
-    <item row="0" column="1">
+    <item row="0" column="2" rowspan="4">
      <widget class="QStackedWidget" name="stackedWidget">
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
       <widget class="QWidget" name="page">
        <widget class="QVTKWidget" name="qvtkWidget">
         <property name="geometry">
          <rect>
-          <x>230</x>
-          <y>0</y>
-          <width>860</width>
-          <height>800</height>
-         </rect>
-        </property>
-       </widget>
-       <widget class="QTreeWidget" name="treeWidgetFilelist">
-        <property name="geometry">
-         <rect>
           <x>0</x>
           <y>0</y>
-          <width>221</width>
-          <height>801</height>
+          <width>1054</width>
+          <height>772</height>
          </rect>
         </property>
         <property name="sizePolicy">
-         <sizepolicy hsizetype="Fixed" vsizetype="Expanding">
+         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
         </property>
-        <column>
-         <property name="text">
-          <string notr="true">1</string>
-         </property>
-        </column>
-       </widget>
-       <widget class="QPushButton" name="btnUpdate">
-        <property name="geometry">
-         <rect>
-          <x>1100</x>
-          <y>0</y>
-          <width>191</width>
-          <height>50</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>Update</string>
-        </property>
-       </widget>
-       <widget class="QPushButton" name="btn2D">
-        <property name="geometry">
-         <rect>
-          <x>1300</x>
-          <y>0</y>
-          <width>50</width>
-          <height>50</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>2D</string>
-        </property>
-       </widget>
-       <widget class="QTreeWidget" name="treeWidgetParameter">
-        <property name="geometry">
-         <rect>
-          <x>1100</x>
-          <y>50</y>
-          <width>271</width>
-          <height>751</height>
-         </rect>
-        </property>
-        <column>
-         <property name="text">
-          <string notr="true">1</string>
-         </property>
-        </column>
        </widget>
       </widget>
       <widget class="QWidget" name="page_2">
-       <widget class="QPushButton" name="btnPlay">
+       <widget class="QLabel" name="rgb_label">
         <property name="geometry">
          <rect>
-          <x>10</x>
-          <y>10</y>
-          <width>80</width>
-          <height>80</height>
+          <x>30</x>
+          <y>120</y>
+          <width>480</width>
+          <height>480</height>
          </rect>
         </property>
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(255, 255, 255);</string>
         </property>
         <property name="text">
          <string/>
-        </property>
-        <property name="icon">
-         <iconset>
-          <normaloff>image/play.png</normaloff>image/play.png</iconset>
-        </property>
-        <property name="iconSize">
-         <size>
-          <width>80</width>
-          <height>80</height>
-         </size>
-        </property>
-        <property name="checkable">
-         <bool>false</bool>
-        </property>
-        <property name="autoRepeat">
-         <bool>false</bool>
-        </property>
-        <property name="autoExclusive">
-         <bool>false</bool>
-        </property>
-        <property name="autoDefault">
-         <bool>false</bool>
-        </property>
-       </widget>
-       <widget class="QPushButton" name="btnPause">
-        <property name="geometry">
-         <rect>
-          <x>110</x>
-          <y>10</y>
-          <width>80</width>
-          <height>80</height>
-         </rect>
-        </property>
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <property name="icon">
-         <iconset>
-          <normaloff>image/pause.png</normaloff>image/pause.png</iconset>
-        </property>
-        <property name="iconSize">
-         <size>
-          <width>80</width>
-          <height>80</height>
-         </size>
-        </property>
-       </widget>
-       <widget class="QPushButton" name="btn3D">
-        <property name="geometry">
-         <rect>
-          <x>1300</x>
-          <y>0</y>
-          <width>50</width>
-          <height>50</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>3D</string>
         </property>
        </widget>
        <widget class="QLabel" name="depth_label">
         <property name="geometry">
          <rect>
-          <x>10</x>
-          <y>110</y>
-          <width>650</width>
-          <height>650</height>
+          <x>540</x>
+          <y>120</y>
+          <width>480</width>
+          <height>480</height>
          </rect>
         </property>
-        <property name="autoFillBackground">
-         <bool>false</bool>
-        </property>
         <property name="styleSheet">
-         <string notr="true">background-color: white</string>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
-       <widget class="QLabel" name="rgb_label">
-        <property name="geometry">
-         <rect>
-          <x>700</x>
-          <y>110</y>
-          <width>650</width>
-          <height>650</height>
-         </rect>
-        </property>
-        <property name="autoFillBackground">
-         <bool>false</bool>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background-color: white</string>
+         <string notr="true">background-color: rgb(255, 255, 255);</string>
         </property>
         <property name="text">
          <string/>
@@ -219,6 +80,111 @@
       </widget>
      </widget>
     </item>
+    <item row="3" column="0">
+     <widget class="QPushButton" name="pushButton_3">
+      <property name="styleSheet">
+       <string notr="true">border-style:none;
+border:1px solid #242424;
+color:#DCDCDC;
+padding:5px;
+min-height:15px;
+border-radius:5px;
+background:qlineargradient(spread:pad,x1:0,y1:0,x2:0,y2:1,stop:0 #484848,stop:1 #383838);</string>
+      </property>
+      <property name="text">
+       <string>上傳</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="0">
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <item>
+       <widget class="QTreeWidget" name="treeWidgetFilelist">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Fixed" vsizetype="Expanding">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(255, 255, 255);</string>
+        </property>
+        <column>
+         <property name="text">
+          <string notr="true">1</string>
+         </property>
+        </column>
+       </widget>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_2">
+        <item>
+         <widget class="QPushButton" name="pushButton_2">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">border-style:none;
+border:1px solid #242424;
+color:#DCDCDC;
+padding:5px;
+min-height:15px;
+border-radius:5px;
+background:qlineargradient(spread:pad,x1:0,y1:0,x2:0,y2:1,stop:0 #484848,stop:1 #383838);</string>
+          </property>
+          <property name="text">
+           <string>切割</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="pushButton">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">border-style:none;
+border:1px solid #242424;
+color:#DCDCDC;
+padding:5px;
+min-height:15px;
+border-radius:5px;
+background:qlineargradient(spread:pad,x1:0,y1:0,x2:0,y2:1,stop:0 #484848,stop:1 #383838);</string>
+          </property>
+          <property name="text">
+           <string>參數計算</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <widget class="QTreeWidget" name="treeWidgetParameter">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Fixed" vsizetype="MinimumExpanding">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">font-size : 15px;
+background-color: rgb(255, 255, 255);</string>
+        </property>
+        <column>
+         <property name="text">
+          <string notr="true">1</string>
+         </property>
+        </column>
+       </widget>
+      </item>
+     </layout>
+    </item>
    </layout>
   </widget>
   <widget class="QMenuBar" name="menuBar">
@@ -226,9 +192,12 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1440</width>
+     <width>1411</width>
      <height>21</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(231, 231, 231);</string>
    </property>
    <widget class="QMenu" name="menu">
     <property name="title">
@@ -263,6 +232,9 @@
    <property name="enabled">
     <bool>true</bool>
    </property>
+   <property name="styleSheet">
+    <string notr="true">background-color:rgb(170, 170, 170);</string>
+   </property>
    <property name="iconSize">
     <size>
      <width>30</width>
@@ -276,14 +248,22 @@
     <bool>false</bool>
    </attribute>
    <addaction name="action_open"/>
+   <addaction name="action_save"/>
+   <addaction name="action_cut"/>
    <addaction name="action_setColor"/>
    <addaction name="action_heightRamp"/>
    <addaction name="action_pickPoints"/>
-   <addaction name="actionaction_getimage"/>
+   <addaction name="action_getimage"/>
+   <addaction name="action_play"/>
+   <addaction name="action_delete"/>
+   <addaction name="action_update"/>
   </widget>
   <widget class="QToolBar" name="toolBar_Left">
    <property name="windowTitle">
     <string>toolBar</string>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color:rgb(170, 170, 170)</string>
    </property>
    <property name="iconSize">
     <size>
@@ -308,10 +288,47 @@
    <addaction name="action_backIso"/>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
+  <widget class="QToolBar" name="toolBar_Right">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="windowTitle">
+    <string>toolBar_2</string>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color:rgb(170, 170, 170)</string>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>RightToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="actionaction_delete_2"/>
+   <addaction name="actionaction_paint"/>
+   <addaction name="actionaction_export"/>
+   <addaction name="actionaction_delete_3"/>
+   <addaction name="actionaction_rename"/>
+   <addaction name="actionaction_UIcolorChange"/>
+  </widget>
+  <widget class="QToolBar" name="toolBar_3">
+   <property name="windowTitle">
+    <string>toolBar_3</string>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color:rgb(170, 170, 170)</string>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>LeftToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+  </widget>
   <action name="action_up">
    <property name="icon">
     <iconset>
-     <normaloff>image/bottom.png</normaloff>image/bottom.png</iconset>
+     <normaloff>image/up.png</normaloff>image/up.png</iconset>
    </property>
    <property name="text">
     <string>俯視圖</string>
@@ -434,13 +451,131 @@
     <string>點雲顏色</string>
    </property>
   </action>
-  <action name="actionaction_getimage">
+  <action name="action_getimage">
    <property name="icon">
     <iconset>
-     <normaloff>image/Camera.png</normaloff>image/Camera.png</iconset>
+     <normaloff>image/camera.png</normaloff>image/camera.png</iconset>
    </property>
    <property name="text">
     <string>取得影像</string>
+   </property>
+  </action>
+  <action name="action_play">
+   <property name="icon">
+    <iconset>
+     <normaloff>image/play.png</normaloff>
+     <normalon>image/play.png</normalon>image/play.png</iconset>
+   </property>
+   <property name="text">
+    <string>action_play</string>
+   </property>
+  </action>
+  <action name="action_delete">
+   <property name="icon">
+    <iconset>
+     <normaloff>image/pause1.png</normaloff>image/pause1.png</iconset>
+   </property>
+   <property name="text">
+    <string>action_stop</string>
+   </property>
+  </action>
+  <action name="actionaction_2d">
+   <property name="icon">
+    <iconset>
+     <normaloff>image/2d.svg</normaloff>image/2d.svg</iconset>
+   </property>
+   <property name="text">
+    <string>action_2d</string>
+   </property>
+  </action>
+  <action name="actionaction_3d">
+   <property name="icon">
+    <iconset>
+     <normaloff>image/camera.png</normaloff>image/camera.png</iconset>
+   </property>
+   <property name="text">
+    <string>action_3d</string>
+   </property>
+  </action>
+  <action name="action_update">
+   <property name="icon">
+    <iconset>
+     <normaloff>image/virus_update.png</normaloff>image/virus_update.png</iconset>
+   </property>
+   <property name="text">
+    <string>action_update</string>
+   </property>
+  </action>
+  <action name="actionaction_delete_2">
+   <property name="icon">
+    <iconset>
+     <normaloff>image/NonMode.png</normaloff>image/NonMode.png</iconset>
+   </property>
+   <property name="text">
+    <string>action_non</string>
+   </property>
+  </action>
+  <action name="actionaction_paint">
+   <property name="icon">
+    <iconset>
+     <normaloff>image/paint.png</normaloff>image/paint.png</iconset>
+   </property>
+   <property name="text">
+    <string>action_paint</string>
+   </property>
+  </action>
+  <action name="actionaction_export">
+   <property name="icon">
+    <iconset>
+     <normaloff>image/export.png</normaloff>image/export.png</iconset>
+   </property>
+   <property name="text">
+    <string>action_export</string>
+   </property>
+  </action>
+  <action name="actionaction_delete_3">
+   <property name="icon">
+    <iconset>
+     <normaloff>image/recycle_bin.png</normaloff>image/recycle_bin.png</iconset>
+   </property>
+   <property name="text">
+    <string>action_delete</string>
+   </property>
+  </action>
+  <action name="actionaction_rename">
+   <property name="icon">
+    <iconset>
+     <normaloff>image/rename.png</normaloff>image/rename.png</iconset>
+   </property>
+   <property name="text">
+    <string>action_rename</string>
+   </property>
+  </action>
+  <action name="actionaction_UIcolorChange">
+   <property name="icon">
+    <iconset>
+     <normaloff>image/UI_ColorChange.png</normaloff>image/UI_ColorChange.png</iconset>
+   </property>
+   <property name="text">
+    <string>action_UIcolorChange</string>
+   </property>
+  </action>
+  <action name="action_save">
+   <property name="icon">
+    <iconset>
+     <normaloff>image/save1.png</normaloff>image/save1.png</iconset>
+   </property>
+   <property name="text">
+    <string>action_save</string>
+   </property>
+  </action>
+  <action name="action_cut">
+   <property name="icon">
+    <iconset>
+     <normaloff>image/cut.png</normaloff>image/cut.png</iconset>
+   </property>
+   <property name="text">
+    <string>action_cut</string>
    </property>
   </action>
  </widget>
