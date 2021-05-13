@@ -3,8 +3,8 @@
   <ImportGroup Label="PropertySheets" />
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
-    <IncludePath>C:\Program Files %28x86%29\Intel RealSense SDK 2.0\bin\x64;C:\Program Files %28x86%29\Intel RealSense SDK 2.0\include;C:\Users\azubu\Desktop\RSTo\OpenCV\build\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Program Files %28x86%29\Intel RealSense SDK 2.0\lib\x64;C:\Users\azubu\Desktop\RSTo\OpenCV\build\lib\Release;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Program Files %28x86%29\Intel RealSense SDK 2.0\bin\x64;C:\Program Files %28x86%29\Intel RealSense SDK 2.0\include;D:\3Dprocess\RSTo\OpenCV\build\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Program Files %28x86%29\Intel RealSense SDK 2.0\lib\x64;D:\3Dprocess\RSTo\OpenCV\build\lib\Release;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup>
     <Link>

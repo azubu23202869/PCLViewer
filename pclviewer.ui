@@ -9,214 +9,41 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1440</width>
-    <height>900</height>
+    <width>1411</width>
+    <height>866</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>PCLViewer</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">background-color:qlineargradient(spread:pad, x1:0.528, y1:1, x2:0.511, y2:0, stop:0 rgba(125, 125, 125, 255), stop:0.471591 rgba(219, 219, 219, 255))</string>
+  </property>
   <widget class="QWidget" name="centralWidget">
    <layout class="QGridLayout" name="gridLayout">
     <item row="0" column="1">
-     <widget class="QStackedWidget" name="stackedWidget">
-      <widget class="QWidget" name="page">
-       <widget class="QVTKWidget" name="qvtkWidget">
-        <property name="geometry">
-         <rect>
-          <x>230</x>
-          <y>0</y>
-          <width>860</width>
-          <height>800</height>
-         </rect>
-        </property>
-       </widget>
-       <widget class="QTreeWidget" name="treeWidgetFilelist">
-        <property name="geometry">
-         <rect>
-          <x>0</x>
-          <y>0</y>
-          <width>221</width>
-          <height>801</height>
-         </rect>
-        </property>
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Fixed" vsizetype="Expanding">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <column>
-         <property name="text">
-          <string notr="true">1</string>
-         </property>
-        </column>
-       </widget>
-       <widget class="QPushButton" name="btnUpdate">
-        <property name="geometry">
-         <rect>
-          <x>1100</x>
-          <y>0</y>
-          <width>191</width>
-          <height>50</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>Update</string>
-        </property>
-       </widget>
-       <widget class="QPushButton" name="btn2D">
-        <property name="geometry">
-         <rect>
-          <x>1300</x>
-          <y>0</y>
-          <width>50</width>
-          <height>50</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>2D</string>
-        </property>
-       </widget>
-       <widget class="QTreeWidget" name="treeWidgetParameter">
-        <property name="geometry">
-         <rect>
-          <x>1100</x>
-          <y>50</y>
-          <width>271</width>
-          <height>751</height>
-         </rect>
-        </property>
-        <column>
-         <property name="text">
-          <string notr="true">1</string>
-         </property>
-        </column>
-       </widget>
-      </widget>
-      <widget class="QWidget" name="page_2">
-       <widget class="QPushButton" name="btnPlay">
-        <property name="geometry">
-         <rect>
-          <x>10</x>
-          <y>10</y>
-          <width>80</width>
-          <height>80</height>
-         </rect>
-        </property>
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <property name="icon">
-         <iconset>
-          <normaloff>image/play.png</normaloff>image/play.png</iconset>
-        </property>
-        <property name="iconSize">
-         <size>
-          <width>80</width>
-          <height>80</height>
-         </size>
-        </property>
-        <property name="checkable">
-         <bool>false</bool>
-        </property>
-        <property name="autoRepeat">
-         <bool>false</bool>
-        </property>
-        <property name="autoExclusive">
-         <bool>false</bool>
-        </property>
-        <property name="autoDefault">
-         <bool>false</bool>
-        </property>
-       </widget>
-       <widget class="QPushButton" name="btnPause">
-        <property name="geometry">
-         <rect>
-          <x>110</x>
-          <y>10</y>
-          <width>80</width>
-          <height>80</height>
-         </rect>
-        </property>
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <property name="icon">
-         <iconset>
-          <normaloff>image/pause.png</normaloff>image/pause.png</iconset>
-        </property>
-        <property name="iconSize">
-         <size>
-          <width>80</width>
-          <height>80</height>
-         </size>
-        </property>
-       </widget>
-       <widget class="QPushButton" name="btn3D">
-        <property name="geometry">
-         <rect>
-          <x>1300</x>
-          <y>0</y>
-          <width>50</width>
-          <height>50</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>3D</string>
-        </property>
-       </widget>
-       <widget class="QLabel" name="depth_label">
-        <property name="geometry">
-         <rect>
-          <x>10</x>
-          <y>110</y>
-          <width>650</width>
-          <height>650</height>
-         </rect>
-        </property>
-        <property name="autoFillBackground">
-         <bool>false</bool>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background-color: white</string>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
-       <widget class="QLabel" name="rgb_label">
-        <property name="geometry">
-         <rect>
-          <x>700</x>
-          <y>110</y>
-          <width>650</width>
-          <height>650</height>
-         </rect>
-        </property>
-        <property name="autoFillBackground">
-         <bool>false</bool>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background-color: white</string>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
-      </widget>
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <item>
+       <widget class="QVTKWidget" name="qvtkWidget"/>
+      </item>
+     </layout>
+    </item>
+    <item row="0" column="0">
+     <widget class="QTreeWidget" name="treeWidgetFilelist">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Fixed" vsizetype="Expanding">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);</string>
+      </property>
+      <column>
+       <property name="text">
+        <string notr="true">1</string>
+       </property>
+      </column>
      </widget>
     </item>
    </layout>
@@ -226,9 +53,12 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1440</width>
+     <width>1411</width>
      <height>21</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(231, 231, 231);</string>
    </property>
    <widget class="QMenu" name="menu">
     <property name="title">
@@ -249,19 +79,15 @@
     </widget>
     <addaction name="menu_3"/>
    </widget>
-   <widget class="QMenu" name="menu_4">
-    <property name="title">
-     <string>工具</string>
-    </property>
-    <addaction name="action_pickPoints"/>
-   </widget>
    <addaction name="menu"/>
    <addaction name="menu_2"/>
-   <addaction name="menu_4"/>
   </widget>
   <widget class="QToolBar" name="toolBar_Top">
    <property name="enabled">
     <bool>true</bool>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color:rgb(170, 170, 170);</string>
    </property>
    <property name="iconSize">
     <size>
@@ -276,14 +102,19 @@
     <bool>false</bool>
    </attribute>
    <addaction name="action_open"/>
+   <addaction name="action_opendirectory"/>
    <addaction name="action_setColor"/>
    <addaction name="action_heightRamp"/>
-   <addaction name="action_pickPoints"/>
-   <addaction name="actionaction_getimage"/>
+   <addaction name="action_play"/>
+   <addaction name="action_reconstruction"/>
+   <addaction name="actionaction_paint"/>
   </widget>
   <widget class="QToolBar" name="toolBar_Left">
    <property name="windowTitle">
     <string>toolBar</string>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color:rgb(170, 170, 170)</string>
    </property>
    <property name="iconSize">
     <size>
@@ -307,11 +138,10 @@
    <addaction name="action_frontIso"/>
    <addaction name="action_backIso"/>
   </widget>
-  <widget class="QStatusBar" name="statusBar"/>
   <action name="action_up">
    <property name="icon">
     <iconset>
-     <normaloff>image/bottom.png</normaloff>image/bottom.png</iconset>
+     <normaloff>image/up.png</normaloff>image/up.png</iconset>
    </property>
    <property name="text">
     <string>俯視圖</string>
@@ -389,15 +219,6 @@
     <string>高度渲染</string>
    </property>
   </action>
-  <action name="action_pickPoints">
-   <property name="icon">
-    <iconset>
-     <normaloff>image/pickPoints.png</normaloff>image/pickPoints.png</iconset>
-   </property>
-   <property name="text">
-    <string>選點</string>
-   </property>
-  </action>
   <action name="action_frontIso">
    <property name="icon">
     <iconset>
@@ -434,13 +255,47 @@
     <string>點雲顏色</string>
    </property>
   </action>
-  <action name="actionaction_getimage">
+  <action name="action_play">
    <property name="icon">
     <iconset>
-     <normaloff>image/Camera.png</normaloff>image/Camera.png</iconset>
+     <normaloff>image/play.png</normaloff>
+     <normalon>image/play.png</normalon>image/play.png</iconset>
    </property>
    <property name="text">
-    <string>取得影像</string>
+    <string>取像</string>
+   </property>
+  </action>
+  <action name="actionaction_paint">
+   <property name="icon">
+    <iconset>
+     <normaloff>image/paint.png</normaloff>image/paint.png</iconset>
+   </property>
+   <property name="text">
+    <string>特徵擷取</string>
+   </property>
+  </action>
+  <action name="action_opendirectory">
+   <property name="icon">
+    <iconset>
+     <normaloff>image/directory.png</normaloff>image/directory.png</iconset>
+   </property>
+   <property name="text">
+    <string>開啟資料夾</string>
+   </property>
+   <property name="toolTip">
+    <string>開啟資料夾</string>
+   </property>
+  </action>
+  <action name="action_reconstruction">
+   <property name="icon">
+    <iconset>
+     <normaloff>image/reconstruction.png</normaloff>image/reconstruction.png</iconset>
+   </property>
+   <property name="text">
+    <string>重構</string>
+   </property>
+   <property name="toolTip">
+    <string>重構</string>
    </property>
   </action>
  </widget>
