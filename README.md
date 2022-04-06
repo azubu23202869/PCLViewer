@@ -1,6 +1,6 @@
 # PCLViewer
 ![投影片1](https://user-images.githubusercontent.com/43975713/162055204-814ea64a-cebf-4c04-a4b8-a122c0a033ba.JPG)
-環境
+## 環境
 ```
 使用版本:
 	PCL:1.11.1
@@ -8,9 +8,9 @@
 	QT:5.15.2
 	Open3D:0.13
 ```
-[建置參照](https://blog.csdn.net/qq_21095573/article/details/107505585)
+### [建置參照](https://blog.csdn.net/qq_21095573/article/details/107505585)
 
-屬性檔
+## 屬性檔
 ```
 C++ 環境建置 VC++目錄中:
 QT_VTK.props:
@@ -54,13 +54,13 @@ C/C++:
 		_SILENCE_EXPERIMENTAL_FILESYSTEM_DEPRECATION_WARNING
 	所有選項:SDL檢查>否
 ```
-##使用方式
+## 使用方式
 
-需先下載[Open3D](https://github.com/isl-org/Open3D/releases/tag/v0.15.1)複製到3Dparty
+### 需先下載[Open3D](https://github.com/isl-org/Open3D/releases/tag/v0.15.1)複製到3Dparty
 
 ![螢幕擷取畫面 2022-04-07 034744](https://user-images.githubusercontent.com/43975713/162058793-fdb64566-27a7-43dd-81f0-99f55b61571c.png)
 
-接著把CppPythonCallback.exe複製到"3Dparty\Open3D\examples\python\reconstruction_system\sensors"
+### 接著把CppPythonCallback.exe複製到"3Dparty\Open3D\examples\python\reconstruction_system\sensors"
 
 Demo
 ![投影片4](https://user-images.githubusercontent.com/43975713/162055233-6bf9fbc9-6a96-4802-ac7b-c184c271b34f.JPG)
