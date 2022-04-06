@@ -7,11 +7,8 @@ ___
 - [PCLViewer](#pclviewer)
 	- [目錄](#目錄)
 	- [環境](#環境)
-		- [建置參照](#建置參照)
 	- [屬性檔](#屬性檔)
 	- [使用方式](#使用方式)
-		- [需先下載Open3D複製到3Dparty](#需先下載open3d複製到3dparty)
-		- [接著把CppPythonCallback.exe複製到"3Dparty\Open3D\examples\python\reconstruction_system\sensors"](#接著把cpppythoncallbackexe複製到3dpartyopen3dexamplespythonreconstruction_systemsensors)
 	- [Demo](#demo)
 		- [Video](#video)
 ___
