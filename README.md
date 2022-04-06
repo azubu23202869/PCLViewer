@@ -56,7 +56,9 @@ C/C++:
 ```
 使用方式
 
-需先下載[Open3D](https://github.com/isl-org/Open3D/releases/tag/v0.15.1)複製到3Dparty&須把CppPythonCallback.exe複製到"C:\Users\azubu\Desktop\Open3D\examples\python\reconstruction_system\sensors"
+需先下載[Open3D](https://github.com/isl-org/Open3D/releases/tag/v0.15.1)複製到3Dparty
+![螢幕擷取畫面 2022-04-07 034744](https://user-images.githubusercontent.com/43975713/162058793-fdb64566-27a7-43dd-81f0-99f55b61571c.png)
+接著把CppPythonCallback.exe複製到"3Dparty\Open3D\examples\python\reconstruction_system\sensors"
 
 Demo
 ![投影片4](https://user-images.githubusercontent.com/43975713/162055233-6bf9fbc9-6a96-4802-ac7b-c184c271b34f.JPG)
