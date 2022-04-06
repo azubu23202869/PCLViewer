@@ -1,7 +1,7 @@
 # PCLViewer
-#環境
+環境
 ```
-#使用版本:
+使用版本:
 	PCL:1.11.1
 	VTK:8.2.0
 	QT:5.15.2
@@ -9,9 +9,9 @@
 建置參照:https://blog.csdn.net/qq_21095573/article/details/107505585
 ```
 
-#屬性檔
+屬性檔
 ```
-#C++ 環境建置 VC++目錄中:
+C++ 環境建置 VC++目錄中:
 QT_VTK.props:
 	include目錄:
 		C:\Program Files\PCL 1.11.1\include\pcl-1.11
