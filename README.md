@@ -3,7 +3,7 @@
 ![投影片1](https://user-images.githubusercontent.com/43975713/162055204-814ea64a-cebf-4c04-a4b8-a122c0a033ba.JPG)
 
 ## 目錄
-- [PCLViewer](#pclviewer)
+	- [PCLViewer](#pclviewer)
 	- [目錄](#目錄)
 	- [環境](#環境)
 		- [建置參照](#建置參照)
@@ -11,9 +11,8 @@
 	- [使用方式](#使用方式)
 		- [需先下載Open3D複製到3Dparty](#需先下載open3d複製到3dparty)
 		- [接著把CppPythonCallback.exe複製到"3Dparty\Open3D\examples\python\reconstruction_system\sensors"](#接著把cpppythoncallbackexe複製到3dpartyopen3dexamplespythonreconstruction_systemsensors)
-	- [Demo](#demo)
-- [Video](#video)
-
+- [Demo](#demo)
+	- [Video](#video)
 ## 環境
 ```
 使用版本:
@@ -89,5 +88,5 @@ C/C++:
 ![投影片15](https://user-images.githubusercontent.com/43975713/162055869-3232502d-42b0-4c3e-b5b8-a2c0f4f14377.JPG)
 ![投影片16](https://user-images.githubusercontent.com/43975713/162055896-955f54a7-7e03-41a8-8d70-e435bda03260.JPG)
 
-## Demo
-# [Video](https://youtu.be/Bo-sm9jQ6aI)
+# Demo
+## [Video](https://youtu.be/Bo-sm9jQ6aI)
