@@ -8,7 +8,7 @@
 	QT:5.15.2
 	Open3D:0.13
 ```
-##[建置參照](https://blog.csdn.net/qq_21095573/article/details/107505585)
+[建置參照](https://blog.csdn.net/qq_21095573/article/details/107505585)
 
 屬性檔
 ```
@@ -54,7 +54,7 @@ C/C++:
 		_SILENCE_EXPERIMENTAL_FILESYSTEM_DEPRECATION_WARNING
 	所有選項:SDL檢查>否
 ```
-使用方式
+##使用方式
 
 需先下載[Open3D](https://github.com/isl-org/Open3D/releases/tag/v0.15.1)複製到3Dparty
 
