@@ -21,6 +21,7 @@
 #include <iomanip>
 #include <ctime>
 #include<Windows.h>
+
 // Qt
 #include <QtWidgets/QMainWindow>
 #include <QFileDialog>
@@ -38,6 +39,7 @@
 #include <QProgressBar>
 #include <QGridLayout>
 #include <QProcess>
+
 
 // Point Cloud Library
 #include <pcl/io/pcd_io.h>
@@ -58,6 +60,11 @@
 #include <pcl/filters/extract_indices.h>
 #include <pcl/segmentation/sac_segmentation.h>
 #include <pcl/filters/conditional_removal.h>
+
+// OpenCV
+#include <opencv2/core/core.hpp>
+#include <opencv2/highgui/highgui.hpp>
+#include <opencv2/opencv.hpp>
 
 // OpenCV
 #include <opencv2/core/core.hpp>

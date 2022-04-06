@@ -298,6 +298,124 @@
     <string>重構</string>
    </property>
   </action>
+  <action name="action_play">
+   <property name="icon">
+    <iconset>
+     <normaloff>image/play.png</normaloff>
+     <normalon>image/play.png</normalon>image/play.png</iconset>
+   </property>
+   <property name="text">
+    <string>action_play</string>
+   </property>
+  </action>
+  <action name="action_delete">
+   <property name="icon">
+    <iconset>
+     <normaloff>image/pause1.png</normaloff>image/pause1.png</iconset>
+   </property>
+   <property name="text">
+    <string>action_stop</string>
+   </property>
+  </action>
+  <action name="actionaction_2d">
+   <property name="icon">
+    <iconset>
+     <normaloff>image/2d.svg</normaloff>image/2d.svg</iconset>
+   </property>
+   <property name="text">
+    <string>action_2d</string>
+   </property>
+  </action>
+  <action name="actionaction_3d">
+   <property name="icon">
+    <iconset>
+     <normaloff>image/camera.png</normaloff>image/camera.png</iconset>
+   </property>
+   <property name="text">
+    <string>action_3d</string>
+   </property>
+  </action>
+  <action name="action_update">
+   <property name="icon">
+    <iconset>
+     <normaloff>image/virus_update.png</normaloff>image/virus_update.png</iconset>
+   </property>
+   <property name="text">
+    <string>action_update</string>
+   </property>
+  </action>
+  <action name="actionaction_delete_2">
+   <property name="icon">
+    <iconset>
+     <normaloff>image/NonMode.png</normaloff>image/NonMode.png</iconset>
+   </property>
+   <property name="text">
+    <string>action_non</string>
+   </property>
+  </action>
+  <action name="actionaction_paint">
+   <property name="icon">
+    <iconset>
+     <normaloff>image/paint.png</normaloff>image/paint.png</iconset>
+   </property>
+   <property name="text">
+    <string>action_paint</string>
+   </property>
+  </action>
+  <action name="actionaction_export">
+   <property name="icon">
+    <iconset>
+     <normaloff>image/export.png</normaloff>image/export.png</iconset>
+   </property>
+   <property name="text">
+    <string>action_export</string>
+   </property>
+  </action>
+  <action name="actionaction_delete_3">
+   <property name="icon">
+    <iconset>
+     <normaloff>image/recycle_bin.png</normaloff>image/recycle_bin.png</iconset>
+   </property>
+   <property name="text">
+    <string>action_delete</string>
+   </property>
+  </action>
+  <action name="actionaction_rename">
+   <property name="icon">
+    <iconset>
+     <normaloff>image/rename.png</normaloff>image/rename.png</iconset>
+   </property>
+   <property name="text">
+    <string>action_rename</string>
+   </property>
+  </action>
+  <action name="actionaction_UIcolorChange">
+   <property name="icon">
+    <iconset>
+     <normaloff>image/UI_ColorChange.png</normaloff>image/UI_ColorChange.png</iconset>
+   </property>
+   <property name="text">
+    <string>action_UIcolorChange</string>
+   </property>
+  </action>
+  <action name="action_save">
+   <property name="icon">
+    <iconset>
+     <normaloff>image/save1.png</normaloff>image/save1.png</iconset>
+   </property>
+   <property name="text">
+    <string>action_save</string>
+   </property>
+  </action>
+  <action name="action_cut">
+   <property name="icon">
+    <iconset>
+     <normaloff>image/cut.png</normaloff>image/cut.png</iconset>
+   </property>
+   <property name="text">
+    <string>action_cut</string>
+   </property>
+  </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <customwidgets>

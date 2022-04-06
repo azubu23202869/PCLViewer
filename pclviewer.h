@@ -3,6 +3,8 @@
 // mybase
 #include "ui_pclviewer.h"
 #include "QHeightRampDlg.h"
+#include "Camera.h"
+#include "calc.h"
 
 // QT
 #include "QTObject.h"
@@ -18,6 +20,7 @@ namespace Ui {
 class PCLViewer : public QMainWindow
 {
 	Q_OBJECT
+	QThread workThread;
 
 public:
 	explicit PCLViewer(QWidget* parent = 0);
@@ -59,6 +62,7 @@ public Q_SLOTS:
 
 	void on_action_reconstruction_triggered();
 
+	void on_action_update_triggered();
 	void on_treeWidgetFilelist_currentItemChanged(QTreeWidgetItem* current, QTreeWidgetItem* previous);
 
 	void on_actionaction_paint_triggered();
@@ -69,13 +73,14 @@ public Q_SLOTS:
 protected:
 	// 點雲宣告
 	//----------------------------------------------------------------
-	PointCloudT::Ptr m_currentCloud;
+	PointCloudT1::Ptr m_currentCloud;
 
 	PointT p_min, p_max;
 
 	QList<PointCloudT::Ptr> m_heightCloudList;
 
 	boost::shared_ptr<pcl::visualization::PCLVisualizer> viewer;
+	//----------------------------------------------------------------
 
 	//----------------------------------------------------------------
 
@@ -116,6 +121,7 @@ protected:
 	// 功能函數
 	//----------------------------------------------------------------
 	void ReadPclFile(const QString& fullPathName);
+	void ReadPara(const QString& Plypath);
 	QFileInfoList AllFile(QTreeWidgetItem* root, const QString& path);
 	void mySystem(const std::string& cmd, const std::string& dir);
 	void pp_callback_AreaSelect(const pcl::visualization::AreaPickingEvent& event, void* args);					 //new
