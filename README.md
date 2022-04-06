@@ -13,10 +13,10 @@ ___
 ## 環境
 ```
 使用版本:
-	PCL:1.11.1
-	VTK:8.2.0
 	QT:5.15.2
-	Open3D:0.13
+	VTK:8.2.0
+	Open3D:0.14.1
+	PCL:1.11.1
 ```
 ### [建置參照](https://blog.csdn.net/qq_21095573/article/details/107505585)
 ___
