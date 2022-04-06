@@ -55,12 +55,9 @@ C/C++:
 	所有選項:SDL檢查>否
 ```
 使用方式
-```
-需先下載Open3D:<https://github.com/isl-org/Open3D/releases/tag/v0.15.1>複製到3Dparty
-&
-須把CppPythonCallback.exe複製到"C:\Users\azubu\Desktop\Open3D\examples\python\reconstruction_system\sensors"
 
-```
+需先下載[Open3D](https://github.com/isl-org/Open3D/releases/tag/v0.15.1)複製到3Dparty&須把CppPythonCallback.exe複製到"C:\Users\azubu\Desktop\Open3D\examples\python\reconstruction_system\sensors"
+
 Demo
 ![投影片4](https://user-images.githubusercontent.com/43975713/162055233-6bf9fbc9-6a96-4802-ac7b-c184c271b34f.JPG)
 ![投影片6](https://user-images.githubusercontent.com/43975713/162055580-78f4b2ba-06a1-4f98-836d-284498dfd394.JPG)
