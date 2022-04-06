@@ -67,12 +67,12 @@ C/C++:
 ___
 ## 使用方式
 
-### 需先下載[Open3D Source Code](https://github.com/isl-org/Open3D/releases/tag/v0.15.1)複製到3Dparty
+### [Open3D Source Code](https://github.com/isl-org/Open3D/releases/tag/v0.15.1)複製到3Dparty
 
 ![螢幕擷取畫面 2022-04-07 034744](https://user-images.githubusercontent.com/43975713/162058793-fdb64566-27a7-43dd-81f0-99f55b61571c.png)
 
 ### [CppPythonCallback.exe](https://github.com/azubu23202869/PCLViewer/releases/tag/Ver1.0)複製到".\3Dparty\Open3D\examples\python\reconstruction_system\sensors"
-### [transform.py](https://github.com/azubu23202869/PCLViewer/releases/tag/Ver1.0)複製到".\3Dparty\3DTestFile\"
+### [Transform.py](https://github.com/azubu23202869/PCLViewer/releases/tag/Ver1.0)複製到".\3Dparty\3DTestFile\"
 ___
 ## 介紹
 ![投影片4](https://user-images.githubusercontent.com/43975713/162055233-6bf9fbc9-6a96-4802-ac7b-c184c271b34f.JPG)
