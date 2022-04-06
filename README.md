@@ -7,8 +7,8 @@
 	VTK:8.2.0
 	QT:5.15.2
 	Open3D:0.13
-[建置參照]:(https://blog.csdn.net/qq_21095573/article/details/107505585)
 ```
+[建置參照](https://blog.csdn.net/qq_21095573/article/details/107505585)
 
 屬性檔
 ```
