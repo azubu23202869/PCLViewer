@@ -74,7 +74,7 @@ C/C++:
 
 ![螢幕擷取畫面 2022-04-07 034744](https://user-images.githubusercontent.com/43975713/162058793-fdb64566-27a7-43dd-81f0-99f55b61571c.png)
 
-### 接著把CppPythonCallback.exe複製到"3Dparty\Open3D\examples\python\reconstruction_system\sensors"
+### 接著把[CppPythonCallback.exe](https://github.com/azubu23202869/PCLViewer/releases/tag/Ver1.0)複製到"3Dparty\Open3D\examples\python\reconstruction_system\sensors"
 
 ![投影片4](https://user-images.githubusercontent.com/43975713/162055233-6bf9fbc9-6a96-4802-ac7b-c184c271b34f.JPG)
 ![投影片6](https://user-images.githubusercontent.com/43975713/162055580-78f4b2ba-06a1-4f98-836d-284498dfd394.JPG)
