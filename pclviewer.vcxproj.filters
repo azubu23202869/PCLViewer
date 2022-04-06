@@ -27,15 +27,6 @@
     <ClCompile Include="pclviewer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Camera.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Mongodb.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="calc.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -52,9 +43,6 @@
     <QtMoc Include="pclviewer.h">
       <Filter>Header Files</Filter>
     </QtMoc>
-    <QtMoc Include="Camera.h">
-      <Filter>Header Files</Filter>
-    </QtMoc>
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="pclviewer.ui">
@@ -66,12 +54,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="QTObject.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="calc.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Mongodb.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

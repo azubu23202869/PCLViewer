@@ -21,7 +21,6 @@
 #include <iomanip>
 #include <ctime>
 #include<Windows.h>
-
 // Qt
 #include <QtWidgets/QMainWindow>
 #include <QFileDialog>
@@ -39,7 +38,6 @@
 #include <QProgressBar>
 #include <QGridLayout>
 #include <QProcess>
-
 
 // Point Cloud Library
 #include <pcl/io/pcd_io.h>
@@ -66,11 +64,6 @@
 #include <opencv2/highgui/highgui.hpp>
 #include <opencv2/opencv.hpp>
 
-// OpenCV
-#include <opencv2/core/core.hpp>
-#include <opencv2/highgui/highgui.hpp>
-#include <opencv2/opencv.hpp>
-
 // Visualization Toolkit (VTK)
 #include <vtkAutoInit.h> 
 #include <vtkRenderer.h>
@@ -86,6 +79,5 @@ VTK_MODULE_INIT(vtkInteractionStyle);
 
 
 #include <librealsense2/rs.hpp>
-#include <Python.h>
 
 #endif

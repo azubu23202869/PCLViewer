@@ -16,8 +16,7 @@ PCLViewer::PCLViewer(QWidget* parent) :
 {
 	ui->setupUi(this);
 	path = "./3Dparty/3DTestFile/";
-	imgpath = "./image/gk.png";
-
+	imgpath = ". / image / gk.png";
 
 	//初始化
 	//----------------------------------------------------------------
@@ -27,8 +26,6 @@ PCLViewer::PCLViewer(QWidget* parent) :
 	// connect(ui->action_play, &QAction::triggered, [=]() { QThreadPool::globalInstance()->start(camera); });
 	//----------------------------------------------------------------
 }
-
-
 
 void PCLViewer::initPCL()
 {
@@ -58,11 +55,6 @@ void PCLViewer::initPCL()
 	ui->qvtkWidget->update();
 }
 
-
-
-//----------------------------------------------------------------
-//單獨開啟3D檔案
-//----------------------------------------------------------------
 void PCLViewer::on_action_open_triggered()
 {
 	// 取得點雲路徑
@@ -81,7 +73,7 @@ void PCLViewer::on_actionaction_paint_triggered()
 
 
 //----------------------------------------------------------------
-//PCL_Callback 達成選3D點雲
+// PCL讀取單一點雲
 //----------------------------------------------------------------
 void PCLViewer::pp_callback_AreaSelect(const pcl::visualization::AreaPickingEvent& event, void* args)				//new
 {
@@ -114,7 +106,7 @@ void PCLViewer::pp_callback_AreaSelect(const pcl::visualization::AreaPickingEven
 }
 
 //----------------------------------------------------------------
-//讀取3D檔案
+// 讀取3D檔案
 //----------------------------------------------------------------
 void PCLViewer::ReadPclFile(const QString& fullPathName) {
 
@@ -166,9 +158,8 @@ void PCLViewer::initTreeWidgetFileList() {
 	AllFile(item, path);
 }
 
-
 //----------------------------------------------------------------
-//開啟資料夾
+// 開啟資料夾
 //----------------------------------------------------------------
 void PCLViewer::on_action_opendirectory_triggered() 
 {
@@ -186,10 +177,10 @@ void PCLViewer::on_action_opendirectory_triggered()
 	AllFile(item, path);
 }
 
+//----------------------------------------------------------------
+// 讀取當前目錄
+//----------------------------------------------------------------
 
-//----------------------------------------------------------------
-//讀取當前目錄
-//----------------------------------------------------------------
 QFileInfoList PCLViewer::AllFile(QTreeWidgetItem* root, const QString& path) {
 	/*添加path路徑文件*/
 	QDir dir(path);          //遍歷各子目錄
@@ -228,7 +219,7 @@ QFileInfoList PCLViewer::AllFile(QTreeWidgetItem* root, const QString& path) {
 
 
 //----------------------------------------------------------------
-//設定層級
+//Call CMD
 //----------------------------------------------------------------
 void PCLViewer::on_treeWidgetFilelist_currentItemChanged(QTreeWidgetItem* current, QTreeWidgetItem* previous)
 {
@@ -252,21 +243,13 @@ void PCLViewer::on_treeWidgetFilelist_currentItemChanged(QTreeWidgetItem* curren
 		ReadPclFile(dir + filename);
 		break;
 	}
-
-// 收到Frame
-void PCLViewer::receiveFrame(QImage rgb, QImage depth)
-{	
-
-	ui->rgb_label->setPixmap(QPixmap::fromImage(rgb));
-	ui->depth_label->setPixmap(QPixmap::fromImage(depth));
-
 }
 
 
 //----------------------------------------------------------------
 // 取像
 //----------------------------------------------------------------
-void PCLViewer::on_action_play_triggered()
+void PCLViewer::on_action_play_triggered() 
 {
 	QMessageBox* pMsgBox = new QMessageBox;
 	pMsgBox->setStandardButtons(QMessageBox::NoButton);  //把預設的 OK button 移除
@@ -279,14 +262,13 @@ void PCLViewer::on_action_play_triggered()
 	pLayout->addWidget(pMsgLabel, 0, 0);
 	pLayout->addWidget(pProgressBar, 1, 0);
 	pMsgBox->show();
-	mySystem("CppPythonCallback.exe", ".\\3Dparty\\Open3D\\examples\\python\\reconstruction_system\\sensors");	//Call Open3D 取像
-	pProgressBar->setValue(100);  //設成100當完成
+	mySystem("CppPythonCallback.exe", ".\\3Dparty\\Open3D\\examples\\python\\reconstruction_system\\sensors");
+	pProgressBar->setValue(100);  
 	pMsgBox->setStandardButtons(QMessageBox::Ok);
 }
 
-
 //----------------------------------------------------------------
-// 重建
+//重構
 //----------------------------------------------------------------
 void PCLViewer::on_action_reconstruction_triggered()
 {
@@ -320,6 +302,7 @@ void PCLViewer::on_action_reconstruction_triggered()
 	}
 
 }
+
 
 //----------------------------------------------------------------
 //Call CMD
@@ -442,7 +425,7 @@ void PCLViewer::on_action_setColor_triggered()
 	QColor color = QColorDialog::getColor(Qt::white, this, "設置點雲顏色", QColorDialog::ShowAlphaChannel);
 
 	viewer->removeAllPointClouds();
-	pcl::visualization::PointCloudColorHandlerCustom<PointT1> singelColor(m_currentCloud, color.red(), color.green(), color.blue());
+	pcl::visualization::PointCloudColorHandlerCustom<PointT> singelColor(m_currentCloud, color.red(), color.green(), color.blue());
 	viewer->addPointCloud(m_currentCloud, singelColor, "myCloud", 0);
 	viewer->setPointCloudRenderingProperties(pcl::visualization::PCL_VISUALIZER_OPACITY, color.alpha() * 1.0 / 255, "myCloud");
 
@@ -492,9 +475,9 @@ void PCLViewer::setHeightRamp(int dir, double height1)
 
 	for (double i = min_range - 1; i < max_range + height1;)
 	{
-		PointCloudT1::Ptr cloudTemp(new PointCloudT1());
+		PointCloudT::Ptr cloudTemp(new PointCloudT());
 
-		pcl::PassThrough<PointT1> pass;			//直通濾波器對象
+		pcl::PassThrough<PointT> pass;			//直通濾波器對象
 		pass.setInputCloud(m_currentCloud);		//輸入點雲
 		pass.setFilterFieldName(field);			//設置過濾字段
 		pass.setFilterLimits(i, i + height1);	//設置過濾範圍
@@ -509,14 +492,14 @@ void PCLViewer::setHeightRamp(int dir, double height1)
 	//分段渲染
 	for (int j = 0; j < m_heightCloudList.size(); j++)
 	{
-		pcl::visualization::PointCloudColorHandlerGenericField<PointT1> fieldColor(m_heightCloudList.at(j), field);
+		pcl::visualization::PointCloudColorHandlerGenericField<PointT> fieldColor(m_heightCloudList.at(j), field);
 		std::string index = std::to_string(j);
 		viewer->addPointCloud(m_heightCloudList.at(j), fieldColor, index);
 	}
 
 }
 
-double getMinValue(PointT1 p1, PointT1 p2)
+double getMinValue(PointT p1, PointT p2)
 {
 	double min = 0;
 
@@ -538,7 +521,7 @@ double getMinValue(PointT1 p1, PointT1 p2)
 }
 
 
-double getMaxValue(PointT1 p1, PointT1 p2)
+double getMaxValue(PointT p1, PointT p2)
 {
 	double max = 0;
 
@@ -559,35 +542,6 @@ double getMaxValue(PointT1 p1, PointT1 p2)
 
 	return max;
 }
-
-
-
-stringstream PCLViewer::Readcalc(const QString& Plypath) {
-
-	string infile = Plypath.toStdString();
-
-	pcl::PolygonMesh mesh;
-
-	if (pcl::io::loadPLYFile(infile, mesh))
-	{
-		std::cout << "error";
-	}
-	//ParametersCalculator ParametersCalculator;
-	pcl::PointCloud<pcl::PointXYZ>::Ptr SRC_cloud(new pcl::PointCloud<pcl::PointXYZ>);
-	pcl::PointCloud<pcl::PointXYZRGB>::Ptr SRC_RGB_cloud(new pcl::PointCloud<pcl::PointXYZRGB>);
-
-	fromPCLPointCloud2(mesh.cloud, *SRC_RGB_cloud);
-
-	//--------------最小X Y Z座標 //最大X Y Z座標------------//
-	pcl::PointXYZ min_sp, max_sp;
-	pcl::getMinMax3D(*SRC_cloud, min_sp, max_sp);
-
-	//--------------排序Z軸，計算光投射深度用-----------------///
-
-	vector<float> SortedZ;
-	for (int i = 0; i < SRC_RGB_cloud->points.size(); i++) {
-		SortedZ.push_back(SRC_RGB_cloud->points[i].z);
-	}
 
 
 
