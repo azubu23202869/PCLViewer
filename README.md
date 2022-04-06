@@ -70,7 +70,7 @@ C/C++:
 ```
 ## 使用方式
 
-### 需先下載[Open3D](https://github.com/isl-org/Open3D/releases/tag/v0.15.1)複製到3Dparty
+### 需先下載[Open3D Source Code](https://github.com/isl-org/Open3D/releases/tag/v0.15.1)複製到3Dparty
 
 ![螢幕擷取畫面 2022-04-07 034744](https://user-images.githubusercontent.com/43975713/162058793-fdb64566-27a7-43dd-81f0-99f55b61571c.png)
 
