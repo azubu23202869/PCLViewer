@@ -53,3 +53,6 @@ C/C++:
 		_SILENCE_EXPERIMENTAL_FILESYSTEM_DEPRECATION_WARNING
 	所有選項:SDL檢查>否
 ```
+
+效果
+![image](https://user-images.githubusercontent.com/43975713/162053445-1a5c3dcf-8d01-483e-b6d8-8bde253c3e91.png)
