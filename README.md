@@ -54,6 +54,6 @@ C/C++:
 	所有選項:SDL檢查>否
 ```
 效果
-```
+
 ![image](https://user-images.githubusercontent.com/43975713/162053712-d7ce2be0-0b06-4002-b025-be26ca8cc8b4.png)
-```
+
